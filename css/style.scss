@@ -1,0 +1,269 @@
+$primario: #9C27B0;
+$primarioOscuro: #89119D;
+$secundario: #DDCE00;
+$secundarioOscuro: rgb(233,287,2);
+$blanco: #fff;
+$negro: #000;
+$fuentePrincipal: 'Staatliches', cursive;
+
+@mixin screen-max($tamaño) {
+    @media (max-width: $tamaño) {
+        @content;
+    }
+}
+@mixin screen-min($tamaño) {
+    @media (min-width: $tamaño) {
+        @content
+    }
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}  
+body {
+    background-color: $primario;
+    font-family: $fuentePrincipal;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $blanco;
+}
+.header {
+    text-align: center;
+
+    &__logo {
+        margin: 5rem 0 3rem 0;
+    }
+    &__navegacion {
+        display: flex;
+        background-color: $primarioOscuro;
+        padding: 2rem;
+        justify-content: center;
+        gap: 2rem;
+
+        &__enlace {
+            font-size: 3rem;
+            color: $blanco;
+            text-decoration: none;
+        }
+    }
+}
+
+.main {
+    margin: 0 auto;
+    max-width: 120rem;
+
+    &__header {
+        color: $secundario;
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    &__producto {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+
+        &__grid {
+            padding: 1rem;
+            background-color: $primarioOscuro;
+            text-decoration: none;
+
+            a {
+                text-decoration: none;
+            }
+            &__img {
+                width: 100%;
+            }
+
+            &__informacion {
+                display: block;
+                
+                &__nombre {
+                    font-size: 4rem;
+                    color: $blanco;
+                    text-align: center;
+                    margin: 1rem;
+                }
+                &__precio {
+                    font-size: 2.8rem;
+                    color: $secundario;
+                    text-align: center;
+                    margin: 1rem;
+                }
+            }
+        }
+    
+    }
+}
+
+.producto__grid {
+    &--react {
+        grid-row: 2 / 3;
+        grid-column: 1 / 3;
+        background-image: url(../img/grafico1.jpg);
+    }
+    &--node {
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+        background-image: url(../img/grafico2.jpg);
+    }   
+    
+}
+.active {
+    color: $secundario;
+}
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+@include screen-max(768px) {
+    .main__producto {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .producto__grid--react {   
+        grid-row: 2 / 3;
+    }
+    .producto__grid--node {
+        grid-column: 1 / 3;
+        grid-row: 8 / 9;
+    }
+}
+.footer {
+    background-color: $primarioOscuro;
+    padding: 1rem;
+    margin-top: 2rem;
+    .footer__texto {
+        color: $blanco;
+        text-align: center;
+        font-size: 2.2rem;
+        font-family: $fuentePrincipal;
+    }
+}
+
+/* Pestaña nosotros */
+
+.main {
+    &__seccion {
+        &--texto {
+            color: $blanco;
+            font-size: 1.8rem;
+        }
+        &__header {
+            text-align: center;
+            color: $secundario;
+            font-size: 3.2rem;
+        }
+        &__bloque{
+            text-align: center;
+            img {
+                width: 100%;
+            }
+            &__header {
+                color: $secundario;
+                font-size: 2.4rem;
+                margin-top: 0;
+            }
+        }
+        &--img {
+            width: 100%;
+        }
+    }
+    
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+@include screen-max(768px) {
+    .grid-2 {
+        display: grid;
+        grid-template-areas: "a a"
+                             "b b";
+    }
+    .main__seccion--img {
+        grid-area: a;
+    }
+    .text {
+        grid-area: b;
+    }
+    .grid-4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Pestaña Producto */
+
+.main__seccion {
+
+    &__img {
+        img {
+            width: 100%;
+        }
+    }
+    @include screen-min(768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+.formulario {
+    font-size: 2rem;
+    &__talla {
+        background-color: $primario;
+        border: 1rem solid $primarioOscuro;
+        appearance: none;
+        padding: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        color: $blanco;
+    }
+    &__cantidad {
+        background-color: $primario;
+        border: 1rem solid $primarioOscuro;
+        appearance: none;
+        padding: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        color: $blanco;
+    }
+    &__carrito {
+        padding: 2rem;
+        
+        font-size: 2rem;
+        background-color: $secundario;
+        border: none;
+        font-family: $fuentePrincipal;
+        cursor: pointer;
+        transition: background .4s ease-in-out;
+        margin-top: 1rem;
+        grid-column: 1/3;
+        &:hover {
+            background-color: rgba($secundario, .85);
+        }   
+    }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+}
+
+/* TERMINADO */

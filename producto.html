@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <title>Frontend Store</title>
+</head>
+<body>
+
+    <header class="header">
+        <a href="./index.html">
+            <img src="img/logo.png" alt="Logo inicio" class="header__logo">
+        </a>
+
+        <nav class="header__navegacion">
+            <a class="header__navegacion__enlace" href="./index.html">Tienda</a>
+            <a class="header__navegacion__enlace" href="./nosotros.html">Nosotros</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <h1 class="main__header">React js</h1>
+        <div class="main__seccion">
+                <img class="main__seccion--img" src="img/3.jpg" alt="Camiseta de react">            
+
+            <div class="main__seccion__informacion">
+                <p class="main__seccion__informacion__texto">Pellentesque nec augue neque. Nulla elementum, dui non vehicula consequat, elit nunc convallis ex, volutpat placerat orci orci a ipsum. Cras id tincidunt sem.</p>
+                
+                <form class="formulario">
+                    <select class="formulario__talla" name="talla" id="talla">
+                        <option class="formulario__seccion" disabled selected>Seleccionar talla</option>
+                        <option class="formulario__seccion" value="Chica">Chica</option>
+                        <option class="formulario__seccion" value="Mediana">Mediana</option>
+                        <option class="formulario__seccion" value="Grande">Grande</option>
+                    </select>
+                    <input class="formulario__cantidad" type="number" placeholder="Cantidad" min="1">
+                    <input class="formulario__carrito" type="submit" value="Agregar al carrito">
+                </form>
+            </div> 
+
+        </div> <!-- .main__seccion -->
+    </main>
+    
+    <footer class="footer">
+        <p class="footer__texto">Front End Store - Todos los derechos Reservados 2022.</p>
+    </footer>
+
+</body>
+</html>
